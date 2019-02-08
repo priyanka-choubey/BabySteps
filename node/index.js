@@ -59,7 +59,7 @@ restService.post("/echo", function(req, res) {
         }
         console.log(`https://edamam-edamam-nutrition-analysis.p.rapidapi.com/api/nutrition-data?nutrition-type=logging&ingr=${speech}`);
       unirest.get(`https://edamam-edamam-nutrition-analysis.p.rapidapi.com/api/nutrition-data?nutrition-type=logging&ingr=${speech}`)
-        .header("X-RapidAPI-Key", "2864e4a849msha7843c68b9a60a0p1a0ad9jsn7ccaff59977c")
+        .header("X-RapidAPI-Key", "")
         .end(function (result) {
         console.log(result.status, result.headers, result.body);
         return res.json({
@@ -78,7 +78,7 @@ restService.post("/echo", function(req, res) {
       if(req.body.queryResult.intent.displayName=="Queries")
       {console.log(`https://faroo-faroo-web-search.p.rapidapi.com/api?q=${speech}`);
           unirest.get(`https://faroo-faroo-web-search.p.rapidapi.com/api?q=${speech}`)
-        .header("X-RapidAPI-Key", "2864e4a849msha7843c68b9a60a0p1a0ad9jsn7ccaff59977c")
+        .header("X-RapidAPI-Key", "")
         .end(function (result) {
           console.log(result.status, result.headers, result.body);
           return res.json({
@@ -99,7 +99,7 @@ restService.post("/echo", function(req, res) {
   var Cronofy = require('cronofy');
 
   var client = new Cronofy({
-    access_token: "q5oL0z4NTKEXO9kdBfCf8H4lkFiiePKo"
+    access_token: ""
   });
 
   console.log(req.body.queryResult.parameters.appoint_date);
@@ -107,7 +107,7 @@ restService.post("/echo", function(req, res) {
 
 
   var options = {
-    calendar_id: "cal_XF0JJtB2PkrVNlWA_wcg05lmqbWGFrJ5ARqCZhg",
+    calendar_id: "",
     event_id: "unique-event-id",
     summary: "Health appointment",
     description: "Gynaecologist appointment",
