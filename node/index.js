@@ -53,7 +53,7 @@ restService.post("/echo", function(req, res) {
       }
 
       if(req.body.queryResult.intent.displayName=="getnutrientinfo")
-      {if(speech.length>req.body.queryResult.parameters.food.length && req.body.queryResult.parameters.food!=NULL)
+      {if(speech.length>req.body.queryResult.parameters.food.length)
         {
           speech=req.body.queryResult.parameters.food;
         }
@@ -121,19 +121,26 @@ restService.post("/echo", function(req, res) {
   client.createEvent(options)
     .then(function () {
         // Success
+        if(req.body.queryResult.languageCode=="hi")
+        {
+          speech=`Aapka appointment ${appoint_date.original} tareek ko ${appoint_time.original} bje krdiya. Shukriya hamari sevayon ka labh uthane ke lye `;
+        }
 
+        else {
+          speech=`Your appointment has been booked on ${appoint_date.original} from ${appoint_time.original}.Thank you for using our services.`
+        }
 
         return res.json({
           "fulfillmentMessages": [
             {"text":
-                    {"text": ["ho gya"]}
+                    {"text": [speech]}
           }
           ],
           "source":""
         });
 
 
-    console.log("ho gya");
+
     });
 
 }
