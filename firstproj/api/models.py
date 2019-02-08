@@ -18,3 +18,8 @@ class Articles(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+class Vaccines(models.Model):
+    title = models.CharField(max_length=100, blank=True, default='')
+    description = models.TextField()
+    when = models.CharField(max_length=100, blank=True, default='During')
