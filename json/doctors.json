@@ -1,0 +1,28 @@
+{
+  "doctors": [
+    {
+      "name": "Arvind Khanna",
+      "email-id": "dr.arvind@gmail.com",
+      "bio": "I am a doctor.",
+      "contact info": "9999912345"
+    },
+    {
+      "name": "Malti Sahu",
+      "email-id": "sahu.nursing@gmail.com",
+      "bio": "I am a doctor.",
+      "contact info": "9999912345"
+    },
+    {
+      "name": "Arun Kant",
+      "email-id": "arunkant11@gmail.com",
+      "bio": "I am a doctor.",
+      "contact info": "9999912345"
+    },
+    {
+      "name": "Mohammad malu",
+      "email-id": "mohmaya@gmail.com",
+      "bio": "I am a doctor.",
+      "contact info": "9999912345"
+    }
+  ]
+}

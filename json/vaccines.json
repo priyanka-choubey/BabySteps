@@ -1,0 +1,34 @@
+{
+  "vaccines": [
+    {
+      "title": "Rubella:",
+      "description": "Rubella during pregnancy can cause serious birth defects that can lead to death before birth or life-long illness for your child. To find out if you’re protected from rubella, you can check with your doctor or have a pre-pregnancy blood test. It’s important to wait a month after getting the vaccine before you try to get pregnant.",
+      "when": "before"
+    },
+    {
+      "title": "Hepatitis B",
+      "description": " If you have hepatitis B infection during pregnancy, it can pass to your baby during birth. Hepatitis B can lead to serious, ongoing health problems for your child. Talk with your doctor about getting tested for hepatitis B and whether or not you need to get vaccinated.",
+      "when": "before"
+    },
+    {
+      "title": "The flu shot",
+      "description": "Getting vaccinated against the flu is important because pregnant women are at increased risk for serious complications from the flu. The flu can also cause serious problems like early labor and delivery, which can affect your baby’s health.\n\nIn addition to protecting you and your unborn baby, getting the flu shot during pregnancy makes it less likely that newborns will get the flu for several months after they’re born — and that lowers their risk of serious complications like pneumonia (lung infection).\n\nYou can get the flu shot during any trimester of your pregnancy.",
+      "when": "during"
+    },
+    {
+      "title": "The whooping cough vaccine",
+      "description": "Getting vaccinated against whooping cough helps protect young babies from whooping cough before they’re old enough to get vaccinated themselves. About half of babies who get whooping cough end up in the hospital — and the disease can be life threatening.\n\nThe vaccine can be given any time during pregnancy, but experts recommend getting the vaccine as early as possible in the third trimester (between 27 and 36 weeks of pregnancy). The whooping cough vaccine is also recommended for other adults who spend time with your baby.",
+      "when": "during"
+    },
+    {
+      "title": "Whooping cough",
+      "description": "If you didn’t get the whooping cough vaccine when you were pregnant, you’ll need to get vaccinated right after delivery. Other people who spend time with the baby may also need to get the whooping cough vaccine.",
+      "when": "after"
+    },
+    {
+      "title": "Measles, mumps, and rubella, and chickenpox",
+      "description": "If you’re not already protected from measles, mumps, rubella, or chickenpox, you’ll need to get vaccinated before you leave the hospital.",
+      "when": "after"
+    }
+  ]
+}
