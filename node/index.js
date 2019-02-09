@@ -121,23 +121,35 @@ restService.post("/echo", function(req, res) {
   client.createEvent(options)
     .then(function () {
         // Success
+	console.log(req.body.queryResult.languageCode);
         if(req.body.queryResult.languageCode=="hi")
-        {
-          speech=`Aapka appointment ${appoint_date.original} tareek ko ${appoint_time.original} bje krdiya. Shukriya hamari sevayon ka labh uthane ke lye `;
+        {console.log(req.body.queryResult.parameters.appoint_date);
+
+
+          return res.json({
+            "fulfillmentMessages": [
+              {"text":
+                      {"text": ["Aapka appointment"+req.body.queryResult.parameters.appoint_date+" tareek ko"+ req.body.queryResult.parameters.appoint_time+" bje krdiya. Shukriya hamari sevayon ka labh uthane ke lye"]}
+            }
+            ],
+            "source":""
+          });
         }
 
-        else {
-          speech=`Your appointment has been booked on ${appoint_date.original} from ${appoint_time.original}.Thank you for using our services.`
+        else if(req.body.queryResult.languageCode=="en")
+{
+          console.log(req.body.queryResult.parameters.appoint_date);
+          return res.json({
+            "fulfillmentMessages": [
+              {"text":
+                      {"text": ["Your appointment has been booked on"+ req.body.queryResult.parameters.appoint_date +"from" +  req.body.queryResult.parameters.appoint_time+".Thank you for using our services"]}
+            }
+            ],
+            "source":""
+          });
         }
 
-        return res.json({
-          "fulfillmentMessages": [
-            {"text":
-                    {"text": [speech]}
-          }
-          ],
-          "source":""
-        });
+
 
 
 
@@ -156,3 +168,4 @@ restService.post("/echo", function(req, res) {
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
 });
+
