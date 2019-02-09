@@ -39,14 +39,19 @@ restService.post("/echo", function(req, res) {
 
       console.log(req.body);
       if(req.body.queryResult.parameters.when_vaccine=='before')
-      {return res.json({
-        "fulfillmentMessages": [
-          {"text":
-                  {"text": ["before"]}
-        }
-        ],
-        "source":""
-      });
+      {unirest.get(`http://8087c0de.ngrok.io/vaccines/before/?format=json`)
+		.header("")
+          .end(function (result) {
+          console.log(result.status, result.headers, result.body);
+          return res.json({
+            "fulfillmentMessages": [
+              {"text":
+                      {"text": [result.body.title+" "+result.body.description]}
+            }
+            ],
+            "source":""
+          });
+          });
 
       }
 
@@ -104,15 +109,18 @@ restService.post("/echo", function(req, res) {
 
   console.log(req.body.queryResult.parameters.appoint_date);
 
+const timeZoneOffset='+05:30';
 
+const dateTimeStart = new Date(Date.parse(req.body.queryResult.parameters.appoint_date.split('T')[0] + 'T' + req.body.queryResult.parameters.appoint_time.split('T')[1].split('+')[0] + timeZoneOffset));
+const dateTimeEnd = new Date(new Date(dateTimeStart).setHours(dateTimeStart.getHours() + 1));
 
   var options = {
     calendar_id: "cal_XF0JJtB2PkrVNlWA_wcg05lmqbWGFrJ5ARqCZhg",
     event_id: "unique-event-id",
     summary: "Health appointment",
     description: "Gynaecologist appointment",
-    start: "2019-02-15T12:00:00Z",
-    end: "2019-02-15T12:30:00Z",
+    start: dateTimeStart,
+    end: dateTimeEnd,
     location: {
       description: "Board room"
     }
@@ -129,7 +137,7 @@ restService.post("/echo", function(req, res) {
           return res.json({
             "fulfillmentMessages": [
               {"text":
-                      {"text": ["Aapka appointment"+req.body.queryResult.parameters.appoint_date+" tareek ko"+ req.body.queryResult.parameters.appoint_time+" bje krdiya. Shukriya hamari sevayon ka labh uthane ke lye"]}
+                      {"text": ["Aapka appointment "+req.body.queryResult.parameters.appoint_date.split('T')[0]+" tareek ko "+ req.body.queryResult.parameters.appoint_time.split('T')[1].split('+')[0]+" bje krdiya. Shukriya hamari sevayon ka labh uthane ke lye"]}
             }
             ],
             "source":""
@@ -142,7 +150,7 @@ restService.post("/echo", function(req, res) {
           return res.json({
             "fulfillmentMessages": [
               {"text":
-                      {"text": ["Your appointment has been booked on"+ req.body.queryResult.parameters.appoint_date +"from" +  req.body.queryResult.parameters.appoint_time+".Thank you for using our services"]}
+                      {"text": ["Your appointment has been booked on "+ req.body.queryResult.parameters.appoint_date.split('T')[0] +" from " +  req.body.queryResult.parameters.appoint_time.split('T')[1].split('+')[0]+". Thank you for using our services"]}
             }
             ],
             "source":""
