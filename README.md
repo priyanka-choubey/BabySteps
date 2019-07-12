@@ -1,1 +1,2 @@
-# BabySteps
+# BabySteps-Project for Shehacks 2019  
+BabySteps is a platform that aims to help pregnant women find timely treatment and explore curated content during their months of pregnancy.It has an api buit with drf, a portal made to communicate between doctors and patients and a frontend website in react.The USP of the project is a chatbot made with dialogueflow with webhooks configured in Nodejs and can comprehend hindi as well as english and also book appointments,yield dietary information and answer general queries.The project is currently in ongoing progress and was built for shehacks 2019,IIITA.
